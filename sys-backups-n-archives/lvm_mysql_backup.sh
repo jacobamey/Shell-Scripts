@@ -2,10 +2,10 @@
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
 
 user=$LOGNAME
-password=As0lidK!
-datadir=
+password="password"
+datadir="/blah/important/"
 tmpmountpoint="/mnt/temp_mount"
-dstdir="/store/backups/mysql_backups/"
+dstdir="/blah/backups/mysql_backups/"
 
 usage () {
   echo "Usage: $0 [OPTION]"
