@@ -58,7 +58,7 @@ SPACEK=`/bin/df -k ${Disk[$i]} | /usr/bin/awk '{print $4}' | tail -n 1`
 SPACEG=`/bin/df -h ${Disk[$i]} | /usr/bin/awk '{print $4}' | tail -n 1`
 
 if [ $SPACEK -le ${MinDisk[$i]} ];
-        then message | $MAU=IL -s $SUBJECT $MAILTO;
+        then message | $MAIL -s $SUBJECT $MAILTO;
 fi
 #
 done

@@ -4,8 +4,8 @@
 ###########################################################
 # Set Script Variables
 #
-REPORT_FILE=/etc/JAKE/docs/capstats.csv
-TEMP_FILE=/etc/JAKE/tmp/capstats.html
+REPORT_FILE=/blah/docs/capstats.csv
+TEMP_FILE=/blah/tmp/capstats.html
 #
 DATE=`date +%m/%d/%Y`
 #

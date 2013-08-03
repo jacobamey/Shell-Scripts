@@ -8,12 +8,12 @@
 ##################################################
 # Set Variables
 #
-HOSTS=" "     # DNS or IP of host(s) to be checked.             #Hostnmae(s) or IP(s)                                
+HOSTS=" "     							# DNS or IP of host(s) to be checked.                                
 COUNT="4"                                               	# Number of ping request.
-SUBJECT="Ping failed - Server(s) may be down"           	# Subject Head of Email
+SUBJECT="Ping failed - Server(s) may be down"           	# Subject Head of Email.
 EMAILID="user@email.com"                        	        # Email address of Users to receive Notification.
 ##################################################
-# check pingability,send email if not.
+# check pingability, send email if not.
 #
 for myHost in $HOSTS
 do
