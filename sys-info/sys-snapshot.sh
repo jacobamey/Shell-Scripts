@@ -11,8 +11,8 @@
 DATE=`date +%m%d%Y`
 DISKS_TO_MONITOR="/dev/sda1"
 MAIL=`which mutt`
-MAIL_TO=jake
-REPORT=/home/jake/Documents/Snapshot_Stats_$DATE.rpt
+MAIL_TO=user
+REPORT=/home/user/Documents/Snapshot_Stats_$DATE.rpt
 ####################################################
 # Create Report File
 #
@@ -84,3 +84,4 @@ $MAIL -a $REPORT -s "System Statistics Report for $DATE" -- $MAIL_TO < /dev/null
 #
 rm -f $REPORT
 #
+# EOF

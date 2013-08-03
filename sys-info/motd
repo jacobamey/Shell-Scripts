@@ -9,9 +9,9 @@
 ##################################################
 # Set your Network card name
 #
-NET="eth0" # Your Network Interface
+NET="eth0"
 ##################################################
-# CPU Data Capture -captures type of CPU and amount, used later bellow to determine average cpu usage.
+# CPU Data Capture
 #
 CPUTIME=$(ps -eo pcpu | awk 'NR>1' | awk '{tot=tot+$1} END {print tot}')
 CPUCORES=$(cat /proc/cpuinfo | grep -c processor)
@@ -27,45 +27,45 @@ done
 ##################################################
 # User Data Capture
 #
-WHO=`who | wc -l` # Number of logged in users
-WHAT=`w -hs`      # Displays current logged in user,location,and process
-USER=`whoami`     # Displays who you are
-GROUP=`groups`    # Current groups you belong too.
+WHO=`who | wc -l` 
+WHAT=`w -hs`      
+USER=`whoami`     
+GROUP=`groups`   
 ##################################################
 # System Data Capture
 #
-HOSTNAME=`hostname` # Name of the Server
-SYSREL=`cat /etc/redhat-release` # System type and release.
-SIREL=`cat /etc/JAKE/release`   # can be removed if you do not have a company version number.
-INFO=`cat /etc/JAKE/info`       # Change the name at least, this is the file that displays Helpful Information about the system.
-KERNEL=`uname -r`		 # Kernel Version
-UPTIME=`uptime|sed 's/^.*up *//;s/, *[0-9]* user.*$/m/; s/ day[^0-9]*/d, /;s/ \([hm]\).*m$/\1/;s/:/h, /; s/^/ /'`  #System update in Hours and minutes
-BTIME=`who -b` # The current time the system the system last bootted.
+HOSTNAME=`hostname` 
+SYSREL=`cat /etc/redhat-release` 
+MYREL=`cat /blah/docs/release`   
+INFO=`cat /blah/docs/info`       
+KERNEL=`uname -r`		 
+UPTIME=`uptime|sed 's/^.*up *//;s/, *[0-9]* user.*$/m/; s/ day[^0-9]*/d, /;s/ \([hm]\).*m$/\1/;s/:/h, /; s/^/ /'`
+BTIME=`who -b`
 ##################################################
 # Network Data Capture
 #
-IPADDR=`hostname -I`                                         # Internal IP
-EXTADDR=`dig myip.opendns.com @resolver1.opendns.com +short` # External IP, note VIPS will need to be pointed to the external VIP Name.
-HWADDR=`ip link show $NET | awk '/ether/ {print $2}'` 	     # MAC Address
+IPADDR=`hostname -I`                                         
+EXTADDR=`dig myip.opendns.com @resolver1.opendns.com +short`
+HWADDR=`ip link show $NET | awk '/ether/ {print $2}'`
 ##################################################
 # Memory Data Capture
 #
-MEM=`free | grep -w 'Mem' | awk '{print $2}'`		# Memory Total
-MEMFREE=`free | grep -w 'Mem' | awk '{print $4}'`       # Memory Free
-SWAP=`free | grep -w 'Swap' | awk '{print $2}'`         # Swap Total
-SWAPFREE=`free | grep -w 'Swap' | awk '{print $4}'`     # Swap Free
-let MEM="$MEM/1024"					# Gives MB
-let SWAP="$SWAP/1024"					# Gives MB
-let MEMFREE="MEMFREE/1024"				# Gives MB
-let SWAPFREE="SWAPFREE/1024"				# Gives MB
+MEM=`free | grep -w 'Mem' | awk '{print $2}'`		
+MEMFREE=`free | grep -w 'Mem' | awk '{print $4}'`       
+SWAP=`free | grep -w 'Swap' | awk '{print $2}'`         
+SWAPFREE=`free | grep -w 'Swap' | awk '{print $4}'`     
+let MEM="$MEM/1024"					
+let SWAP="$SWAP/1024"				
+let MEMFREE="MEMFREE/1024"				
+let SWAPFREE="SWAPFREE/1024"				
 ##################################################
 # Disk Space Data Capture
 #
-ROOT=`df -h / | awk '{ a = $4 } END { print a }'`	# Disk space percentage available.
+ROOT=`df -h / | awk '{ a = $4 } END { print a }'`
 ##################################################
 # Load Data Capture
 #
-read one five fifteen rest < /proc/loadavg             # Reads in the load for 1, 5, and 15 min.
+read one five fifteen rest < /proc/loadavg           
 ##################################################
 # Display Data to Users
 #
@@ -77,7 +77,7 @@ echo -e "
 \033[0;35m=====================================: \033[1;32mSystem Info\033[0;35m :============================
 +\033[0;37mHostname \033[0;35m= \033[1;34m$HOSTNAME
 \033[0;35m+\033[0;37mLinux Version \033[0;35m= \033[1;34m$SYSREL
-\033[0;35m+\033[0;37mJakes Version \033[0;35m= \033[1;34m$SIREL
+\033[0;35m+\033[0;37mJakes Version \033[0;35m= \033[1;34m$MYREL
 \033[0;35m+\033[0;37mKernel \033[0;35m= \033[1;34m$KERNEL
 \033[0;35m+\033[0;37mCPU \033[0;35m= \033[1;34m[${i}]:${CPUMOD} @${CPUSPEC} MHz
 \033[0;35m-------------------------------------: \033[1;32mNetwork Data\033[0;35m :---------------------------

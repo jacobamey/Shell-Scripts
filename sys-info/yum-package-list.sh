@@ -7,5 +7,5 @@
 # Last Updated: July 9th 2013
 ##################################################
 # Simple One Liner
-rpm -qa --qf %{NAME}\ > /store/packages/packageLitst.txt
+rpm -qa --qf %{NAME}\ > /blah/packages/packageLitst.txt
 # EOF
