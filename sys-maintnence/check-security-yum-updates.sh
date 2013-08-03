@@ -8,7 +8,7 @@
 ##################################################
 # Set Variables
 #
-EMAIL="changeme@securityinspection.com"
+EMAIL="changeme@email.com"
 YUMTMP="/tmp/yum-security-check-update.$$"
 YUM="/usr/bin/yum"
 $YUM --security check-update >& $YUMTMP

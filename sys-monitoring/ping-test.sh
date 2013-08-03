@@ -8,10 +8,10 @@
 ##################################################
 # Set Variables
 #
-HOSTS="efdesx5a.ctc.chrysler.com efdesx5b.ctc.chrysler.com"     # DNS or IP of host(s) to be checked.                                             
+HOSTS=" "     # DNS or IP of host(s) to be checked.             #Hostnmae(s) or IP(s)                                
 COUNT="4"                                               	# Number of ping request.
 SUBJECT="Ping failed - Server(s) may be down"           	# Subject Head of Email
-EMAILID="efdnotify@dcctools.com"                        	# Email address of Users to receive Notification.
+EMAILID="user@email.com"                        	        # Email address of Users to receive Notification.
 ##################################################
 # check pingability,send email if not.
 #

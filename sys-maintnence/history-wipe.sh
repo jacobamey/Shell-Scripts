@@ -3,7 +3,7 @@
 #
 #     !WARNING!	   !WARNING!	!WARNING!
 #
-# This should only be ran on the golden image 
+# This should only be ran on new systems post build 
 # or when cloning a system to be new. Only 
 # Reason this exist is to give a system a fresh start
 # any other use will be considered malacious.
@@ -19,7 +19,6 @@
 ##################################################
 # Name: history-wipe.sh
 # Description: Cleares out all logs,mail, and cli history.
-# Company: Security Inspection, Inc.
 # Script Maintainer: Jacob Amey
 #
 # Last Updated: July 31st 2013

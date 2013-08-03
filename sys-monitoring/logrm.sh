@@ -1,7 +1,6 @@
 ##################################################
 # Name: logrm.sh
 # Description: logs removed files to /var/log/messages
-# Company: Security Inspection, Inc.
 # Script Maintainer: Jacob Amey
 #
 # Last Updated: July 9th 2013

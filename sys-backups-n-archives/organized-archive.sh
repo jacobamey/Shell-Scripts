@@ -8,7 +8,7 @@
 ##################################################
 # Set base Structure
 #
-BASEDEST=/home/jake/Documents/test
+BASEDEST=/home/user/Documents/test
 ##################################################
 # Set Level of organization wanted
 #

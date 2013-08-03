@@ -36,9 +36,8 @@ GROUP=`groups`    # Current groups you belong too.
 #
 HOSTNAME=`hostname` # Name of the Server
 SYSREL=`cat /etc/redhat-release` # System type and release.
-SIREL=`cat /etc/SI/si-release`   # can be removed if you do not have a company version number.
-EOS=`cat /etc/SI/si-eos`         # can be removed if you do nothave a system code.
-INFO=`cat /etc/SI/si-info`       # Change the name at least, this is the file that displays Helpful Information about the system.
+SIREL=`cat /etc/JAKE/release`   # can be removed if you do not have a company version number.
+INFO=`cat /etc/JAKE/info`       # Change the name at least, this is the file that displays Helpful Information about the system.
 KERNEL=`uname -r`		 # Kernel Version
 UPTIME=`uptime|sed 's/^.*up *//;s/, *[0-9]* user.*$/m/; s/ day[^0-9]*/d, /;s/ \([hm]\).*m$/\1/;s/:/h, /; s/^/ /'`  #System update in Hours and minutes
 BTIME=`who -b` # The current time the system the system last bootted.
@@ -78,8 +77,7 @@ echo -e "
 \033[0;35m=====================================: \033[1;32mSystem Info\033[0;35m :============================
 +\033[0;37mHostname \033[0;35m= \033[1;34m$HOSTNAME
 \033[0;35m+\033[0;37mLinux Version \033[0;35m= \033[1;34m$SYSREL
-\033[0;35m+\033[0;37mSI Version \033[0;35m= \033[1;34m$SIREL
-\033[0;35m+\033[0;37mEOS \033[0;35m= \033[1;34m$EOS
+\033[0;35m+\033[0;37mJakes Version \033[0;35m= \033[1;34m$SIREL
 \033[0;35m+\033[0;37mKernel \033[0;35m= \033[1;34m$KERNEL
 \033[0;35m+\033[0;37mCPU \033[0;35m= \033[1;34m[${i}]:${CPUMOD} @${CPUSPEC} MHz
 \033[0;35m-------------------------------------: \033[1;32mNetwork Data\033[0;35m :---------------------------

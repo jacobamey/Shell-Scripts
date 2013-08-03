@@ -2,7 +2,6 @@
 ##################################################
 # Name: login-notify
 # Description: Sends an email when user logs in to system.
-# Company: Security Inspection, Inc.
 # Script Maintainer: Jacob Amey
 #
 # Last Updated: July 9th 2013
@@ -10,7 +9,7 @@
 # Mail Configuration
 #
 SUBJECT="Root Login Alert:`hostname`"
-EMAIL="changeme@securityinspection.com"
+EMAIL="changeme@email.com"
 ###################################################
 # Logging Settings
 #

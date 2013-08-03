@@ -37,7 +37,7 @@ Warning: Disk ${Disk[$i]} has $SPACEG left on
 # Mail Settings
 #
 MAIL=`which mailx`
-MAILTO="jamey@securityinspection.com"
+MAILTO="user@email.com"
 SUBJECT="Warning: low Disk Space for $HOSTNAME"
 ##################################################
 # Devices to Monitor

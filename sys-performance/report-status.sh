@@ -8,13 +8,13 @@
 ##################################################
 # Set Script Variables
 #
-REPORT_FILE=/etc/SI/docs/capstats.csv
-TEMP_FILE=/etc/SI/tmp/capstats.html
+REPORT_FILE=/etc/JAKE/docs/capstats.csv
+TEMP_FILE=/etc/JAKE/tmp/capstats.html
 #
 DATE=`date +%m/%d/%Y`
 #
 MAIL=`which mutt`
-MAIL_TO="jamey@securityinspection.com"
+MAIL_TO="user@email.com"
 #
 HOSTNAME=`hostname`
 IP=`hostname -I`

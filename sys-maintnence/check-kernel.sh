@@ -2,14 +2,13 @@
 ##################################################
 # Name: check-kernel.sh
 # Description: Checks running kernel vs newest installed, emails if diffrent.
-# Company: Security Inspection, Inc.
 # Script Maintainer: Jacob Amey
 #
 # Last Updated: July 9th 2013
 ##################################################
 # Set Variables
 #
-EMAIL="changeme@securityinspection.com"
+EMAIL="changeme@email.com"
 KERNEL=$(rpm -q kernel |tail -n1|sed -e 's/kernel-//')
 HOSTNAME=$(/bin/hostname)
 #

@@ -2,7 +2,6 @@
 ##################################################
 # Name: basic-info.sh
 # Description: Grabs basic info about the server
-# Company: Security Inspection, Inc.
 # Script Maintainer: Jacob Amey
 #
 # Last Updated: July 9th 2013

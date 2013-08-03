@@ -15,12 +15,12 @@ HOSTNAME=`hostname`
 #
 SERVICE="httpd"
 PORT="80"
-HOST="10.17.125.30"
+HOST="127.0.0.1"
 ##################################################
 # Mail Settings
 #
 MAIL=`which mailx`
-MAILTO="jamey@securityinspection.com"
+MAILTO="user@email.com"
 ##################################################
 # Logging Settings
 #

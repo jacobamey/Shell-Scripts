@@ -4,13 +4,12 @@
 ###########################################################
 # Set Script Variables
 #
-REPORT_FILE=/etc/SI/docs/capstats.csv
-TEMP_FILE=/etc/SI/tmp/capstats.html
+REPORT_FILE=/etc/JAKE/docs/capstats.csv
+TEMP_FILE=/etc/JAKE/tmp/capstats.html
 #
 DATE=`date +%m/%d/%Y`
 #
-MAIL_TO="jamey@securityinspection.com pperic@securityinspection.com nsmlead@dcctools.com"
-#MAIL_TO="jamey@securityinspection.com"
+MAIL_TO="user@email.com"
 #
 HOSTNAME=`hostname`
 IP=`/sbin/ifconfig eth0 | grep "inet addr" | gawk -F: '{print $2}' | gawk '{print $1}'`
@@ -37,7 +36,7 @@ body
 
 }
 
-#nsm-stat-table
+#stat-table
 
 {
 
@@ -55,7 +54,7 @@ body
 
 }
 
-#nsm-stat-table th
+#stat-table th
 
 {
 
@@ -75,7 +74,7 @@ body
 
 }
 
-#nsm-stat-table td
+#stat-table td
 
 {
 
@@ -100,7 +99,7 @@ body
 	background: #e8edff;
 }
 
-#nsm-stat-table tr:hover td
+#stat-table tr:hover td
 
 {
 
@@ -117,7 +116,7 @@ echo "</head> " >> $TEMP_FILE
 echo "<body><h3>Reported on $DATE</h3>" >> $TEMP_FILE
 echo "<h3>Hostname: $HOSTNAME</h3>" >> $TEMP_FILE
 echo "<h3>Internal IP: $IP</h3>" >> $TEMP_FILE
-echo "<table id="nsm-stat-table" summary="NSM 30 Daily Statistics">" >> $TEMP_FILE
+echo "<table id="stat-table" summary="Daily Statistics">" >> $TEMP_FILE
 echo "<thead>" >> $TEMP_FILE
 echo "<tr><th scope="col">Date</th><th scope="col">Time</th><th scope="col">Users</th>" >> $TEMP_FILE
 echo "<th scope="col">Load 15 Min</th><th scope="col">Free Memory</th><th scope="col">Swap Used</th>" >> $TEMP_FILE
@@ -139,7 +138,7 @@ echo "</tbody></table></body></html>" >> $TEMP_FILE
 ###########################################################
 # Mail Performance Report & Clean up
 #
-(printf "%s\n%s\n" "Performance Report $DATE"; uuencode $TEMP_FILE "NSM-Performance.html") |mailx -s "NSM 30 Performance Report" $MAIL_TO
+(printf "%s\n%s\n" "Performance Report $DATE"; uuencode $TEMP_FILE "Performance.html") |mailx -s "Daily Performance Report" $MAIL_TO
 #
 rm -f $TEMP_FILE
 rm -f $REPORT_FILE
