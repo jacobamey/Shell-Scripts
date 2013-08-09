@@ -29,7 +29,7 @@ usage () {
   exit 1
 }
 ##################################################
-# Main Script
+#Case statemnt.
 #
 until [ -z "$1" ]; do
   case "$1" in
@@ -75,22 +75,26 @@ done
 
 [ -z $password ] && echo "Empty password!" && usage
 [ ! -d $dstdir ] && echo "$dstdir does not exist" && exit 1
-
+##################################################
 # Check if temp mount point not used
+#
 [ `mount | grep "$tmpmountpoint" | wc -l` -ne 0 ] && exit 1
-
+##################################################
 # Get Mysql data directory
+#
 datadir=`mysql -u $user -p$password -Ns -e "show global variables like 'datadir'"|cut -f 2|sed -e s/"\/$"//g`
 [ -z "$datadir" ] && exit 1
-
+##################################################
 # Get snap name and size
+#
 vg=`mount | grep $datadir | cut -d ' ' -f 1 | cut -d '/' -f 4 | cut -d '-' -f 1`
 lv=`mount | grep $datadir | cut -d ' ' -f 1 | cut -d '/' -f 4 | cut -d '-' -f 2`
 [ -z $lv ] && echo "Mysql data dir must be mounted on a LVM partition!" && exit 1
 snap=$lv"snap"
 snapsize=$(expr `df -m $datadir | tail -1 | tr -s ' ' | cut -d ' ' -f 2` / 10)M
-
+##################################################
 # Backup
+#
 echo "Locking databases"
 mysql -u$user -p$password << EOF
 FLUSH TABLES WITH READ LOCK;
@@ -99,16 +103,16 @@ UNLOCK TABLES;
 quit
 EOF
 echo "Databases unlocked"
-
+##################################################
 ##file rotate
+#
 rm -f $dstdir/mysql.tar.gz.3
 mv $dstdir/mysql.tar.gz.2 $dstdir/mysql.tar.gz.3
 mv $dstdir/mysql.tar.gz.1 $dstdir/mysql.tar.gz.2
 mv $dstdir/mysql.tar.gz $dstdir/mysql.tar.gz.1
-
-
-
-
+##################################################
+# Perfrom the backup.
+#
 echo "Backing up databases"
 mount /dev/$vg/$snap $tmpmountpoint
 cd $tmpmountpoint
