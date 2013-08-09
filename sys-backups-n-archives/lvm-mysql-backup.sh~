@@ -1,23 +1,12 @@
 #!/bin/bash
-##################################################
-# Name: lvm-mysql-backup.sh
-# Description: Does a backup of your MySQL Database utilizng LVM Snapshot.
-# Script Maintainer: Jacob Amey
-#
-# Last Updated: August 8th 2013
-##################################################
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
-##################################################
-# Variables
-#
+
 user=$LOGNAME
 password="password"
 datadir="/blah/important/"
 tmpmountpoint="/mnt/temp_mount"
 dstdir="/blah/backups/mysql_backups/"
-##################################################
-# Usage Options
-#
+
 usage () {
   echo "Usage: $0 [OPTION]"
   echo "-d, --dest=name       Destination directory. Default is /tmp"
@@ -28,9 +17,7 @@ usage () {
   echo "-u, --user=name       User for login if not current user"
   exit 1
 }
-##################################################
-# Main Script
-#
+
 until [ -z "$1" ]; do
   case "$1" in
     -u)
@@ -119,5 +106,4 @@ lvremove -f /dev/$vg/$snap
 echo "Databases backed up in $dstdir"
 
 exit 0
-##################################################
-# EOF
+
