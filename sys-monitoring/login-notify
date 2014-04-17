@@ -1,10 +1,10 @@
 #!/bin/bash
 ##################################################
 # Name: login-notify
-# Description: Sends an email when user logs in to system.
+# Description: Sends an email when user logs in to system as root.
 # Script Maintainer: Jacob Amey
 #
-# Last Updated: July 9th 2013
+# Last Updated: April 17th 2014
 ##################################################
 # Mail Configuration
 #
