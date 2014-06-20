@@ -2,7 +2,7 @@
 ##################################################
 # Name: lvm-mysql-backup.sh
 # Description: Does a backup of your MySQL Database utilizng LVM Snapshot.
-# Script Maintainer: Jacob Amey
+# Script Maintainer: Jacob Amey 
 #
 # Last Updated: August 8th 2013
 ##################################################
