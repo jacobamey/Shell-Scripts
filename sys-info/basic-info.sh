@@ -1,19 +1,12 @@
 #!/bin/bash
 #
-# Modernized version of basic-info.sh
-#
-# - Gathers a more comprehensive set of system information.
-# - Formats output for readability.
-# - Uses modern commands like 'ip' and 'ss'.
-# - Allows the output file to be specified as an argument.
-# - Includes error handling and basic checks.
-#
 ##################################################
 # Name: basic-info.sh
 # Description: Grabs basic info about the server
 # Script Maintainer: Jacob Amey
 #
-# Last Updated: July 9th 2013 (Original)
+# Published: July 9th 2013 (Original)
+# Last Updated: September 18th 2018 (Modernized)
 ##################################################
 
 set -euo pipefail
