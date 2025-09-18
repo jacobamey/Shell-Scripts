@@ -24,16 +24,20 @@ set -euo pipefail
 DEFAULT_OUTPUT_FILE="/tmp/system-info-$(hostname)-$(date +%Y%m%d_%H%M%S).txt"
 OUTPUT_FILE="${1:-$DEFAULT_OUTPUT_FILE}"
 
+# --- Color Codes ---
+COLOR_HEADER=""
+COLOR_RESET=""
+
 # --- Functions ---
 
 # Function to write a formatted section header to the output file.
 write_header() {
     local title="$1"
     {
-        echo
-        echo "================================================================================"
-        echo "=== ${title}"
-        echo "================================================================================"
+        printf "\n"
+        printf "${COLOR_HEADER}================================================================================${COLOR_RESET}\n"
+        printf "${COLOR_HEADER}=== ${title}${COLOR_RESET}\n"
+        printf "${COLOR_HEADER}================================================================================${COLOR_RESET}\n"
     } >> "$OUTPUT_FILE"
 }
 
@@ -50,6 +54,21 @@ run_command() {
 }
 
 # --- Main Script ---
+
+# Simple argument check for color
+if [[ "${1:-}" == "--color" || "${2:-}" == "--color" ]]; then
+    # If --color is the first arg, shift it and use the default output file.
+    if [[ "${1:-}" == "--color" ]]; then
+        shift
+        OUTPUT_FILE="$DEFAULT_OUTPUT_FILE"
+    fi
+    # If --color is the second arg, shift it. The first arg is already the output file.
+    if [[ "${2:-}" == "--color" ]]; then
+        shift
+    fi
+    COLOR_HEADER=$'\e[1;34m' # Bold Blue
+    COLOR_RESET=$'\e[0m'
+fi
 
 # Check for root privileges early, as they are needed for package installation.
 if [ "$(id -u)" -ne 0 ]; then

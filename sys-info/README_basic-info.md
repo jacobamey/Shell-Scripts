@@ -30,6 +30,7 @@ This script (`basic-info.sh`) is a modernized and robust tool for gathering a co
 *   **User-Friendly Output:**
     *   Generates a clean, well-structured report with clear section headers.
     *   Saves the report to a timestamped file in `/tmp` by default.
+    *   Optional `--color` flag to generate a report with ANSI color codes for better readability in terminals.
     *   Allows specifying a custom output file path.
 
 ## Prerequisites
@@ -62,6 +63,15 @@ This script (`basic-info.sh`) is a modernized and robust tool for gathering a co
     You can provide a file path as the first argument to save the report to a specific location.
     ```bash
     ./basic-info.sh /home/user/reports/my-server-snapshot.txt
+    ```
+4.  **Generate a report with color:**
+    Use the `--color` flag to embed ANSI color codes in the report.
+    ```bash
+    sudo ./basic-info.sh --color
+    ```
+    You can then view the colorized report in your terminal with `cat` or `less -R`:
+    ```bash
+    cat /tmp/system-info-$(hostname)*.txt
     ```
 
 ## Example Output
