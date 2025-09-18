@@ -1,10 +1,3 @@
-2.  **MySQL Server:** A running MySQL instance.
-3.  **MySQL Client Utilities:** `mysql` and `mysqladmin` commands must be available in the system's PATH.
-4.  **`getopt`:** For robust command-line argument parsing (usually pre-installed).
-5.  **`logger`:** For sending output to syslog (usually pre-installed).
-6.  **`tar` and `gzip`:** For archiving and compression (usually pre-installed).
-7.  **Root Privileges:** The script must be run as `root` to manage LVM snapshots and mount points.
-8.  **MySQL User Privileges:** The MySQL user used for backup must have at least the `RELOAD` privilege (for `FLUSH TABLES WITH READ LOCK`) and `SELECT` privilege on `information_schema` to determine the `datadir`.
 ## MySQL LVM Snapshot Backup Script
 
 This script provides a robust and reliable method for backing up MySQL databases using LVM (Logical Volume Manager) snapshots. It's designed to minimize downtime by creating a consistent snapshot of the MySQL data directory, then archiving it, ensuring data integrity.
